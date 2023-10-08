@@ -23,6 +23,13 @@
     {/await}
 </div>
 
+<div class="loadmore">
+    <div on:click={() => shownBreeds += 5}>
+        <img src="bone.webp" alt="Bone" />
+        <div>Fetch more dogs!</div>
+    </div>
+</div>
+
 <style>
     .breed-list {
         display: grid;
@@ -30,6 +37,36 @@
         gap: 3rem;
         padding: 1rem;
         border-radius: 100px;
-        background-color: rgb(255, 230, 230);
+        background-color: var(--bg-orange);
+    }
+
+    .loadmore {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .loadmore > div {
+        position: relative;
+        cursor: pointer;
+        width: 18em;
+        transition: transform .2s ease-in-out;
+        margin: auto;
+    }
+    .loadmore > div:hover {
+        transform: scale(1.1);
+    }
+
+    .loadmore > div > img {
+        width: 100%;
+    }
+
+    .loadmore > div > div {
+        position: absolute;
+        top: 54px;
+        text-align: center;
+        width: 100%;
+        font-size: 1.5rem;
+        font-family: 'Caveat', cursive;
     }
 </style>

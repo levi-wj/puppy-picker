@@ -17,7 +17,7 @@
     {:then src} 
         <img src="{src}" class="doggy" alt="Loading..." height="300" loading="lazy">
     {/await}
-    <img class="pawprint" src="Dog_Paw_Print.png" />
+    <img class="pawprint" src="Dog_Paw_Print.png" alt="paw print"/>
     <h3>{breed}</h3>
 </div>
 
@@ -26,7 +26,7 @@
         background-color: white;
         border-radius: 4px;
         padding: 1rem;
-        border: 1px solid rgb(229, 229, 229);
+        border: 4px solid rgb(229, 229, 229);
         padding-top: 1em;
         cursor: pointer;
         box-shadow: 1px 3px 4px rgb(160, 160, 160);
@@ -35,7 +35,7 @@
     }
     div:hover {
         box-shadow: 1px 3px 6px gray;
-        border: 4px solid rgb(250, 197, 98);
+        border: 4px solid var(--orange);
     }
 
     h3 {
@@ -51,6 +51,7 @@
         margin-bottom: 2rem;
         max-height: 200px;
     }
+
     img.pawprint {
         position: absolute;
         height: 100px;
@@ -58,5 +59,6 @@
         opacity: .1;
         right: .2rem;
         bottom: 1rem;
+        z-index: -1;
     }
 </style>
