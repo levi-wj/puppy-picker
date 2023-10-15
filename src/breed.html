@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Breed</title>
+    <link rel="stylesheet" href="app.css">
+
+    <script type="module">
+        import SideBar from './lib/SideBar.svelte';
+        import BreedDetails from './lib/BreedDetails.svelte';
+        
+        new SideBar({
+            target: document.getElementById('sidebar'),
+        });
+        new BreedDetails({
+            props: {
+                breed: (new URLSearchParams(window.location.search)).get('breed'),
+            },
+            target: document.getElementById('breed-details'),
+        });
+    </script>
+</head>
+<body>
+    <main>
+        <div id="sidebar"></div>
+        <div id="breed-details"></div>
+    </main>
+</body>
+</html>

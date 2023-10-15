@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Collection</title>
+    <link rel="stylesheet" href="app.css">
+
+    <script type="module">
+        import SideBar from './lib/SideBar.svelte';
+        import CollectionView from './lib/CollectionView.svelte';
+        
+        const name = (new URLSearchParams(window.location.search)).get('name');
+        
+        new SideBar({
+            target: document.getElementById('sidebar'),
+            props: {
+                selectedTab: name, 
+            },
+        });
+        new CollectionView({
+            props: {
+                name,
+            },
+            target: document.getElementById('collection-view'),
+        });
+    </script>
+</head>
+<body>
+    <main>
+        <div id="sidebar"></div>
+        <div id="collection-view"></div>
+    </main>
+</body>
+</html>

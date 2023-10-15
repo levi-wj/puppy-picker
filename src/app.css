@@ -6,8 +6,11 @@
   --bg-orange: rgb(254, 233, 207);
   --blue: #2f5ba5;
   --bg-blue: #ddf2f9;
+  --shadow-blue: #bacdec;
+  --bg-blue-hover: #d0e8f0;
   --offwhite: #fdfdfd;
   --gray: #555555;
+  --bg-gray: #ededed;
 }
 
 a {
@@ -16,8 +19,26 @@ a {
   text-decoration: inherit;
 }
 
+main {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 15% 1fr;
+  gap: 2em;
+}
+
 body {
   margin: 0;
+}
+
+.card {
+  background-color: white;
+  border-radius: 4px;
+  padding: 1rem;
+  border: 4px solid rgb(229, 229, 229);
+  padding-top: 1em;
+  box-shadow: 1px 3px 4px rgb(160, 160, 160);
+  transition: all .15s ease-in-out;
+  position: relative;
 }
 
 /* button {

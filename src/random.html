@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Dog</title>
+    <link rel="stylesheet" href="app.css">
+
+    <script type="module">
+        import SideBar from './lib/SideBar.svelte';
+        import RandomDog from './lib/RandomDog.svelte';
+
+        new SideBar({
+            props: {
+                selectedTab: 'Random Dog',
+            },
+            target: document.getElementById('sidebar'),
+        });
+        
+        new RandomDog({
+            target: document.getElementById('random-dog'),
+        });
+    </script>
+</head>
+<body>
+    <main>
+        <div id="sidebar"></div>
+        <div id="random-dog"></div>
+    </main>
+</body>
+</html>

@@ -11,27 +11,21 @@
     }
 </script>
 
-<div style="transform: rotate({rotation}deg)">
-    {#await getRandomImage()}
-        <img src="#" alt="Loading..." height="300">
-    {:then src} 
-        <img src="{src}" class="doggy" alt="Loading..." height="300" loading="lazy">
-    {/await}
-    <img class="pawprint" src="Dog_Paw_Print.png" alt="paw print"/>
-    <h3>{breed}</h3>
-</div>
+<a href="/src/breed.html?breed={breed}">
+    <div style="transform: rotate({rotation}deg)" class="card">
+        {#await getRandomImage()}
+            <img src="#" alt="Loading..." height="300">
+        {:then src} 
+            <img src="{src}" class="doggy" alt="Loading..." height="300" loading="lazy">
+        {/await}
+        <img class="pawprint" src="Dog_Paw_Print.png" alt="paw print"/>
+        <h3>{breed}</h3>
+    </div>
+</a>
 
 <style>
     div {
-        background-color: white;
-        border-radius: 4px;
-        padding: 1rem;
-        border: 4px solid rgb(229, 229, 229);
-        padding-top: 1em;
         cursor: pointer;
-        box-shadow: 1px 3px 4px rgb(160, 160, 160);
-        transition: all .2s ease-in-out;
-        position: relative;
     }
     div:hover {
         box-shadow: 1px 3px 6px gray;

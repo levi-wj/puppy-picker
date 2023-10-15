@@ -1,9 +1,14 @@
-<script>
-    export let collections = [];
+<script lang="ts">
+    import { collections } from "../localstore";
 
-    const handleClick = (collection) => {
-        // handle click event
-    };
+    export let selectedTab: string;
+    
+    function createCollection() {
+        const name: string = prompt("What would you like to name your collection?");
+        if (name !== null && name !== '') {
+            collections.update(c => [...c, { name, pics: [] }]);
+        }
+    }
 </script>
 
 <div>
@@ -12,29 +17,36 @@
         <span>🐕</span>
     </div>
     <ul class="section">
-        <li>
-            <a href="/">Browse Breeds</a>
-        </li>
-        <li>
-            <a href="/">Guessing Game</a>
-        </li>
-        <!-- https://dog.ceo/api/breeds/image/random -->
-        <li>
-            <a href="/">Random Dog</a>
-        </li>
+        <a href="/">
+            <li class:selected={selectedTab === 'Browse Breeds'}>
+                Browse Breeds
+            </li>
+        </a>
+        <!-- <a href="/">
+            <li class:selected={selectedTab === 'Guessing Game'}>
+                Guessing Game
+            </li>
+        </a> -->
+        <a href="/src/random.html">
+            <li class:selected={selectedTab === 'Random Dog'}>
+                Random Dog
+            </li>
+        </a>
     </ul>
     <h4>Your Collections</h4>
     <ul class="section">
-        {#each collections as collection}
-            <li>
-                <a on:click={() => handleClick(collection)}>
+        {#each $collections as collection}
+            <a href="/src/collection.html?name={collection.name}">
+                <li class:selected={selectedTab === collection.name}>
                     {collection.name}
-                </a>
-            </li>
+                </li>
+            </a>
         {/each}
-        <li>
-            <a href="/">+ New Collection</a>
-        </li>
+        <a on:click={createCollection}>
+            <li>
+                + New Collection
+            </li>
+        </a>
     </ul>
 </div>
 
@@ -65,14 +77,17 @@
         padding: .5em;
     }
 
-    ul > li {
+    ul > a > li {
         list-style: none;
         cursor: pointer;
         padding: 1em .5em 1em .5em;
-        border-radius: 10px;   
+        border-radius: 10px;
     }
-    ul > li:hover {
+    ul > a > li:hover {
         background-color: #efefef;
+    }
+    ul > a > li.selected {
+        background-color: var(--bg-orange);
     }
 
     h4 {
