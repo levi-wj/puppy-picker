@@ -2,7 +2,7 @@
 
 A website for finding and curating collections of dog pictures.
 
-[Demo Video]([http://youtube.link.goes.here](https://youtu.be/z1umTuTGIn4))
+[Demo Video](https://youtu.be/z1umTuTGIn4)
 
 # Development Environment
 
